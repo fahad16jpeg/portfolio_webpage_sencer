@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fahad Sencer | Portfolio</title>
+    
+    <!-- Load Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- 1. Tailwind Configuration (Needed before CSS link for compilation) -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'custom-accent': '#00ADB5',
+                        'dark-bg': '#121212',
+                        'medium-dark': '#1a1a1a',
+                        'light-text': '#EAEAEA',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- 2. Link External Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body class="bg-dark-bg text-light-text selection:bg-custom-accent selection:text-dark-bg min-h-screen">
+
+    <!-- Custom Cursor Elements -->
+    <div id="custom-cursor-outer" class="custom-cursor"></div>
+    <div id="custom-cursor-inner" class="custom-cursor"></div>
+
+    <!-- Header and Navigation -->
+    <header class="sticky top-0 z-50 bg-dark-bg/95 backdrop-blur-sm shadow-md py-4 px-6 md:px-12">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <!-- Logo/Name -->
+            <a href="#hero" class="text-2xl font-extrabold tracking-tight text-custom-accent hover:text-light-text transition duration-300 rounded-lg">
+                FAHAD SENCER.
+            </a>
+            <!-- Navigation Links -->
+            <nav>
+                <ul class="flex space-x-4 md:space-x-8">
+                    <li><a href="#skills" class="text-sm font-medium hover:text-custom-accent transition duration-300 rounded-md">SKILLS</a></li>
+                    <li><a href="#experience" class="text-sm font-medium hover:text-custom-accent transition duration-300 rounded-md">EXPERIENCE</a></li>
+                    <li><a href="#projects" class="text-sm font-medium hover:text-custom-accent transition duration-300 rounded-md">PROJECTS</a></li>
+                    <li><a href="#about" class="text-sm font-medium hover:text-custom-accent transition duration-300 rounded-md">ABOUT</a></li>
+                    <li><a href="#contact" class="text-sm font-medium hover:text-custom-accent transition duration-300 rounded-md">CONTACT</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="min-h-screen flex items-center justify-center px-6 py-20">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center text-center lg:text-left">
+            
+            <!-- Profile Picture -->
+            <div class="flex justify-center lg:justify-end lg:order-2">
+                <img src="https://static.wixstatic.com/media/347014_d464fb31eed149e583f53e84d30edc14~mv2.jpg/v1/fill/w_960,h_695,al_c,q_85,enc_avif,quality_auto/347014_d464fb31eed149e583f53e84d30edc14~mv2.jpg"
+                     onerror="this.onerror=null; this.src='https://placehold.co/400x400/121212/00ADB5?text=Fahad+Sencer'; console.error('Image failed to load, using placeholder.');"
+                     alt="Fahad Sencer Profile Picture"
+                     class="w-64 h-64 md:w-80 md:h-80 object-cover rounded-full border-4 border-custom-accent shadow-2xl shadow-custom-accent/50 mb-8 lg:mb-0"
+                >
+            </div>
+            
+            <!-- Text Content -->
+            <div class="lg:order-1">
+                <p class="text-base md:text-xl font-medium mb-4 text-custom-accent tracking-wider uppercase">HI THERE, I'M FAHAD SENCER.</p>
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight">
+                    I am a <span class="text-custom-accent" id="typewriter-target">Web Developer</span>.
+                </h1>
+                <p class="text-lg md:text-xl mb-8 text-gray-400">
+                    UNIVERSITY STUDENT | WEB DEVELOPER | DESIGN ENTHUSIAST
+                </p>
+                <a href="#experience" class="inline-flex items-center justify-center px-8 py-3 border border-custom-accent text-sm font-semibold rounded-full text-custom-accent hover:bg-custom-accent hover:text-dark-bg transition duration-300 shadow-lg hover:shadow-custom-accent/50">
+                    VIEW MY EXPERIENCE
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Skillset Section -->
+    <section id="skills" class="py-20 px-6 md:px-12 bg-medium-dark">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl md:text-5xl font-bold mb-12 text-center border-b-2 border-custom-accent/30 inline-block pb-1">Skillset.</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+                <!-- Skill Block 1 -->
+                <div class="space-y-4">
+                    <!-- WEB DEVELOPMENT -->
+                    <div class="mb-4">
+                        <p class="text-base font-semibold text-light-text flex justify-between">
+                            <span>WEB DEVELOPMENT</span>
+                            <span class="text-custom-accent">85%</span>
+                        </p>
+                        <div class="w-full bg-gray-700 rounded-full h-2.5">
+                            <div class="bg-custom-accent h-2.5 rounded-full progress-bar" data-width="85" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    <!-- JAVASCRIPT -->
+                    <div class="mb-4">
+                        <p class="text-base font-semibold text-light-text flex justify-between">
+                            <span>JAVASCRIPT</span>
+                            <span class="text-custom-accent">75%</span>
+                        </p>
+                        <div class="w-full bg-gray-700 rounded-full h-2.5">
+                            <div class="bg-custom-accent h-2.5 rounded-full progress-bar" data-width="75" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    <!-- PYTHON -->
+                    <div class="mb-4">
+                        <p class="text-base font-semibold text-light-text flex justify-between">
+                            <span>PYTHON</span>
+                            <span class="text-custom-accent">60%</span>
+                        </p>
+                        <div class="w-full bg-gray-700 rounded-full h-2.5">
+                            <div class="bg-custom-accent h-2.5 rounded-full progress-bar" data-width="60" style="width: 0%"></div>
+                            </div>
+                    </div>
+                    <!-- HTML & CSS -->
+                    <div class="mb-4">
+                        <p class="text-base font-semibold text-light-text flex justify-between">
+                            <span>HTML & CSS</span>
+                            <span class="text-custom-accent">50%</span>
+                        </p>
+                        <div class="w-full bg-gray-700 rounded-full h-2.5">
+                            <div class="bg-custom-accent h-2.5 rounded-full progress-bar" data-width="50" style="width: 0%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skill Block 2 -->
+                <div class="space-y-4">
+                    <!-- PROJECT MANAGEMENT -->
+                    <div class="mb-4">
+                        <p class="text-base font-semibold text-light-text flex justify-between">
+                            <span>PROJECT MANAGEMENT</span>
+                            <span class="text-custom-accent">85%</span>
+                        </p>
+                        <div class="w-full bg-gray-700 rounded-full h-2.5">
+                            <div class="bg-custom-accent h-2.5 rounded-full progress-bar" data-width="85" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    <!-- GRAPHIC DESIGN -->
+                    <div class="mb-4">
+                        <p class="text-base font-semibold text-light-text flex justify-between">
+                            <span>GRAPHIC DESIGN</span>
+                            <span class="text-custom-accent">80%</span>
+                        </p>
+                        <div class="w-full bg-gray-700 rounded-full h-2.5">
+                            <div class="bg-custom-accent h-2.5 rounded-full progress-bar" data-width="80" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    <!-- 3D ENVIRONMENT -->
+                    <div class="mb-4">
+                        <p class="text-base font-semibold text-light-text flex justify-between">
+                            <span>3D ENVIRONMENT</span>
+                            <span class="text-custom-accent">35%</span>
+                        </p>
+                        <div class="w-full bg-gray-700 rounded-full h-2.5">
+                            <div class="bg-custom-accent h-2.5 rounded-full progress-bar" data-width="35" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    <!-- PROFESSIONAL -->
+                    <div class="mb-4">
+                        <p class="text-base font-semibold text-light-text flex justify-between">
+                            <span>PROFESSIONAL</span>
+                            <span class="text-custom-accent">75%</span>
+                        </p>
+                        <div class="w-full bg-gray-700 rounded-full h-2.5">
+                            <div class="bg-custom-accent h-2.5 rounded-full progress-bar" data-width="75" style="width: 0%"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 px-6 md:px-12">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl md:text-5xl font-bold mb-12 text-center border-b-2 border-custom-accent/30 inline-block pb-1">Experience.</h2>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+
+                <!-- Experience Entry 1: Security Officer -->
+                <div class="group bg-medium-dark p-6 md:p-8 rounded-xl shadow-2xl hover:shadow-custom-accent/40 transition duration-500 ease-in-out transform hover:-translate-y-1">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-2xl font-bold text-light-text group-hover:text-custom-accent transition duration-300">Security Officer</h3>
+                        <p class="text-sm font-semibold text-custom-accent bg-custom-accent/20 px-3 py-1 rounded-full whitespace-nowrap">2025 - Present</p>
+                    </div>
+                    <p class="text-lg font-medium text-gray-400 mb-4">Royal Lancaster Hotel, London</p>
+                    <p class="text-gray-300 mb-4 text-base">
+                        Ensuring the safety and security of guests, staff, and property. Duties include maintaining surveillance, controlling access points, and responding promptly to security incidents and emergencies.
+                    </p>
+                </div>
+
+                <!-- Experience Entry 2: Automation Specialist GHL -->
+                <div class="group bg-medium-dark p-6 md:p-8 rounded-xl shadow-2xl hover:shadow-custom-accent/40 transition duration-500 ease-in-out transform hover:-translate-y-1">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-2xl font-bold text-light-text group-hover:text-custom-accent transition duration-300">Automation Specialist GHL</h3>
+                        <p class="text-sm font-semibold text-custom-accent bg-custom-accent/20 px-3 py-1 rounded-full whitespace-nowrap">2023 - 2024</p>
+                    </div>
+                    <p class="text-lg font-medium text-gray-400 mb-4">Vanray Systems, NYC (Remote)</p>
+                    <p class="text-gray-300 mb-4 text-base">
+                        Developed and implemented system integrations and automation workflows using the GoHighLevel (GHL) platform to streamline client operations and improve efficiency in marketing and sales processes.
+                    </p>
+                </div>
+
+                <!-- Experience Entry 3: Retail Associate -->
+                <div class="group bg-medium-dark p-6 md:p-8 rounded-xl shadow-2xl hover:shadow-custom-accent/40 transition duration-500 ease-in-out transform hover:-translate-y-1">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-2xl font-bold text-light-text group-hover:text-custom-accent transition duration-300">Retail Associate</h3>
+                        <p class="text-sm font-semibold text-custom-accent bg-custom-accent/20 px-3 py-1 rounded-full whitespace-nowrap">2023 - 2024 (Seasonal)</p>
+                    </div>
+                    <p class="text-lg font-medium text-gray-400 mb-4">R & B Fashion, Izmir, Turkiye</p>
+                    <p class="text-gray-300 mb-4 text-base">
+                        Provided excellent customer service and maintained inventory and visual merchandising standards during peak seasons. Developed strong communication and team collaboration skills in a fast-paced environment.
+                    </p>
+                </div>
+                
+                <!-- Experience Entry 4: Freelancer -->
+                <div class="group bg-medium-dark p-6 md:p-8 rounded-xl shadow-2xl hover:shadow-custom-accent/40 transition duration-500 ease-in-out transform hover:-translate-y-1">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-2xl font-bold text-light-text group-hover:text-custom-accent transition duration-300">Freelancer</h3>
+                        <p class="text-sm font-semibold text-custom-accent bg-custom-accent/20 px-3 py-1 rounded-full whitespace-nowrap">2022 - 2023</p>
+                    </div>
+                    <p class="text-lg font-medium text-gray-400 mb-4">Website Design / Automations GHL</p>
+                    <p class="text-gray-300 mb-4 text-base">
+                        Provided freelance services focusing on custom website design, development, and building automated marketing and CRM workflows for small businesses, utilizing platforms like GHL.
+                    </p>
+                </div>
+
+            </div>
+            <!-- Call to action at the bottom of the section -->
+            <div class="text-center mt-16">
+                <a href="#projects" class="inline-flex items-center justify-center px-10 py-4 border-2 border-custom-accent text-base font-semibold rounded-full text-custom-accent hover:bg-custom-accent hover:text-dark-bg transition duration-300 shadow-xl hover:shadow-custom-accent/50">
+                    VIEW MY PROJECTS
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 px-6 md:px-12 bg-dark-bg">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl md:text-5xl font-bold mb-12 text-center border-b-2 border-custom-accent/30 inline-block pb-1">Projects.</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+
+                <!-- Project Card 1: Green Vegetables Snack & Recipie Website -->
+                <div class="group bg-medium-dark p-6 md:p-8 rounded-xl shadow-2xl hover:shadow-custom-accent/40 transition duration-500 ease-in-out transform hover:-translate-y-1">
+                    <div class="mb-4">
+                        <!-- Project Image -->
+                        <img src="https://static.wixstatic.com/media/347014_ff2fff7d7aef4e24b91c33bb5cabde12~mv2.png/v1/fill/w_327,h_326,q_90,enc_avif,quality_auto/347014_ff2fff7d7aef4e24b91c33bb5cabde12~mv2.png"
+                             onerror="this.onerror=null; this.src='https://placehold.co/327x326/1a1a1a/00ADB5?text=Website+Project';"
+                             alt="Green Vegetables Snack & Recipie Website Mockup"
+                             class="w-full h-48 object-cover rounded-lg mb-6 border border-gray-700"
+                        />
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2 text-custom-accent group-hover:text-light-text transition duration-300">Green Vegetables Snack & Recipie Website</h3>
+                    
+                    <p class="text-gray-400 mb-4 text-base">
+                        This project involved designing and developing a clean, user-friendly website dedicated to healthy eating. It features various snack recipes, nutritional breakdowns, and a modern, responsive interface.
+                    </p>
+                    
+                    <div class="flex flex-wrap gap-2 mt-4">
+                        <span class="inline-block text-xs font-semibold py-1 px-3 rounded-full bg-custom-accent/20 text-custom-accent">Web Design</span>
+                        <span class="inline-block text-xs font-semibold py-1 px-3 rounded-full bg-custom-accent/20 text-custom-accent">HTML & CSS</span>
+                    </div>
+                </div>
+
+                <!-- Project Card 2: Dark Money -->
+                <div class="group bg-medium-dark p-6 md:p-8 rounded-xl shadow-2xl hover:shadow-custom-accent/40 transition duration-500 ease-in-out transform hover:-translate-y-1">
+                    <div class="mb-4">
+                        <!-- Project Image -->
+                        <img src="https://static.wixstatic.com/media/347014_93920c5a7c0a45dbb21549b4a79db60c~mv2.png/v1/fill/w_327,h_326,q_90,enc_avif,quality_auto/347014_93920c5a7c0a45dbb21549b4a79db60c~mv2.png"
+                             onerror="this.onerror=null; this.src='https://placehold.co/327x326/1a1a1a/00ADB5?text=Dark+Money+Concept';"
+                             alt="Dark Money Concept Art"
+                             class="w-full h-48 object-cover rounded-lg mb-6 border border-gray-700"
+                        />
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2 text-custom-accent group-hover:text-light-text transition duration-300">Dark Money</h3>
+                    
+                    <p class="text-gray-400 mb-4 text-base">
+                        "Dark Money" is a conceptual graphic design project focused on creating a brand identity with a mysterious, high-contrast theme. It involved advanced digital illustration techniques.
+                    </p>
+
+                    <div class="flex flex-wrap gap-2 mt-4">
+                        <span class="inline-block text-xs font-semibold py-1 px-3 rounded-full bg-custom-accent/20 text-custom-accent">Graphic Design</span>
+                        <span class="inline-block text-xs font-semibold py-1 px-3 rounded-full bg-custom-accent/20 text-custom-accent">Branding</span>
+                    </div>
+                </div>
+
+                <!-- Project Card 3: Eerie Forest Mansion -->
+                <div class="group bg-medium-dark p-6 md:p-8 rounded-xl shadow-2xl hover:shadow-custom-accent/40 transition duration-500 ease-in-out transform hover:-translate-y-1">
+                    <div class="mb-4">
+                        <!-- Project Image -->
+                        <img src="https://static.wixstatic.com/media/347014_bf17a302502c4c398c284ab3274b9d04~mv2.png/v1/fill/w_326,h_326,q_90,enc_avif,quality_auto/347014_bf17a302502c4c398c284ab3274b9d04~mv2.png"
+                             onerror="this.onerror=null; this.src='https://placehold.co/327x326/1a1a1a/00ADB5?text=3D+Mansion+Render';"
+                             alt="Eerie Forest Mansion 3D Render"
+                             class="w-full h-48 object-cover rounded-lg mb-6 border border-gray-700"
+                        />
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2 text-custom-accent group-hover:text-light-text transition duration-300">Eerie Forest Mansion</h3>
+                    
+                    <p class="text-gray-400 mb-4 text-base">
+                        This is a personal 3D modeling and environment creation project. It showcases skills in asset creation, complex scene composition, and advanced rendering techniques using tools like Blender.
+                    </p>
+
+                    <div class="flex flex-wrap gap-2 mt-4">
+                        <span class="inline-block text-xs font-semibold py-1 px-3 rounded-full bg-custom-accent/20 text-custom-accent">3D Environment</span>
+                        <span class="inline-block text-xs font-semibold py-1 px-3 rounded-full bg-custom-accent/20 text-custom-accent">Blender/Unity</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 px-6 md:px-12 bg-medium-dark">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-4xl md:text-5xl font-bold mb-12 text-center border-b-2 border-custom-accent/30 inline-block pb-1">About.</h2>
+
+            <div class="space-y-6 text-lg text-gray-300 leading-relaxed">
+                <p>
+                    I’m an Undergrad Computer Science Student at Teesside University London with a strong interest in AI automations and system integrations. I am passionate about exploring ways to make tasks more efficient through technology and design.
+                </p>
+                <p>
+                    My skillsets cover Web Development, Graphic Design, Project Management, and 3D Environment creation. I particularly enjoy the challenge of full-stack development using modern frameworks, ensuring that both the user experience and the underlying code are robust.
+                </p>
+                <p>
+                    Outside of tech, I'm an active member of the TU London football team. I’m currently open to new opportunities in automation or web development—feel free to reach out to connect!
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-6 md:px-12 bg-dark-bg">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-4xl md:text-5xl font-bold mb-8">Let's Connect.</h2>
+            <p class="text-xl md:text-2xl text-gray-300 mb-10">
+                I'm currently available for freelance opportunities and full-time roles. Drop me a line!
+            </p>
+
+            <a href="mailto:contact@mfahaddd753.com" class="inline-flex items-center justify-center px-12 py-5 bg-custom-accent text-dark-bg text-lg font-bold rounded-full shadow-2xl shadow-custom-accent/50 hover:bg-light-text hover:text-custom-accent transition duration-300 transform hover:scale-105">
+                contact@mfahaddd753.com
+            </a>
+
+            <!-- Social Links Placeholder (LinkedIn and GitHub SVGs retained) -->
+            <div class="mt-12 flex justify-center space-x-6">
+                <!-- LinkedIn -->
+                <a href="https://www.linkedin.com/in/muhammad-fahad16/" target="_blank" class="text-custom-accent hover:text-light-text transition duration-300">
+                    <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.75s.784-1.75 1.75-1.75 1.75.79 1.75 1.75-.783 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.13-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                </a>
+                <!-- GitHub -->
+                <a href="https://github.com/fahad16jpeg" target="_blank" class="text-custom-accent hover:text-light-text transition duration-300">
+                    <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.374-12 12s5.374 12 12 12 12-5.374 12-12-5.374-12-12-12zm6.99 6.818l-6.197 10.158-1.503-2.003-3.088-3.992-1.202-1.558 2.003-1.503 1.99 2.585 5.215-8.583 2.684 1.636z"/></svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 text-center border-t border-gray-800 text-gray-500 text-sm">
+        <p>&copy; 2025 Fahad Sencer. Built with <span class="text-red-500">&hearts;</span> and a focus on clean design.</p>
+    </footer>
+
+    <!-- 3. Link External JavaScript file -->
+    <script src="script.js"></script>
+
+</body>
+</html>
