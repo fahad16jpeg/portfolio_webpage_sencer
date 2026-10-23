@@ -4,377 +4,501 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fahad Sencer | Portfolio</title>
-    
-    <!-- Load Tailwind CSS via CDN -->
+    <meta name="description" content="Fahad Sencer, Computer Science student at Teesside University London, web developer and automation specialist.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..800&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- 1. Tailwind Configuration (Needed before CSS link for compilation) -->
+
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
                         'custom-accent': '#00ADB5',
-                        'dark-bg': '#121212',
-                        'medium-dark': '#1a1a1a',
+                        'dark-bg': '#0f1113',
+                        'medium-dark': '#16191c',
+                        'line': '#24292e',
                         'light-text': '#EAEAEA',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['"Space Grotesk"', 'sans-serif'],
+                        mono: ['"JetBrains Mono"', 'monospace'],
                     }
                 }
             }
         }
     </script>
-    
-    <!-- 2. Link External Stylesheet -->
-    <link rel="stylesheet" href="style.css">
-    
-</head>
-<body class="bg-dark-bg text-light-text selection:bg-custom-accent selection:text-dark-bg min-h-screen">
 
-    <!-- Custom Cursor Elements -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-dark-bg text-light-text font-sans selection:bg-custom-accent selection:text-dark-bg min-h-screen antialiased">
+
     <div id="custom-cursor-outer" class="custom-cursor"></div>
     <div id="custom-cursor-inner" class="custom-cursor"></div>
 
-    <!-- Header and Navigation -->
-    <header class="sticky top-0 z-50 bg-dark-bg/95 backdrop-blur-sm shadow-md py-4 px-6 md:px-12">
+    <header id="site-header" class="sticky top-0 z-50 bg-dark-bg/80 backdrop-blur-md border-b border-transparent transition-colors duration-300 py-4 px-6 md:px-12">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <!-- Logo/Name -->
-            <a href="#hero" class="text-2xl font-extrabold tracking-tight text-custom-accent hover:text-light-text transition duration-300 rounded-lg">
-                FAHAD SENCER.
+            <a href="#hero" class="font-display text-xl md:text-2xl font-bold tracking-tight text-light-text hover:text-custom-accent transition duration-300">
+                FAHAD<span class="text-custom-accent">.</span>SENCER
             </a>
-            <!-- Navigation Links -->
-            <nav>
-                <ul class="flex space-x-4 md:space-x-8">
-                    <li><a href="#skills" class="text-sm font-medium hover:text-custom-accent transition duration-300 rounded-md">SKILLS</a></li>
-                    <li><a href="#experience" class="text-sm font-medium hover:text-custom-accent transition duration-300 rounded-md">EXPERIENCE</a></li>
-                    <li><a href="#projects" class="text-sm font-medium hover:text-custom-accent transition duration-300 rounded-md">PROJECTS</a></li>
-                    <li><a href="#about" class="text-sm font-medium hover:text-custom-accent transition duration-300 rounded-md">ABOUT</a></li>
-                    <li><a href="#contact" class="text-sm font-medium hover:text-custom-accent transition duration-300 rounded-md">CONTACT</a></li>
+            <nav class="hidden lg:block" aria-label="Main">
+                <ul class="flex space-x-8">
+                    <li><a href="#skills" class="nav-link">SKILLS</a></li>
+                    <li><a href="#experience" class="nav-link">EXPERIENCE</a></li>
+                    <li><a href="#education" class="nav-link">EDUCATION</a></li>
+                    <li><a href="#resume" class="nav-link">RESUME</a></li>
+                    <li><a href="#projects" class="nav-link">PROJECTS</a></li>
+                    <li><a href="#about" class="nav-link">ABOUT</a></li>
+                    <li><a href="#contact" class="nav-link">CONTACT</a></li>
                 </ul>
             </nav>
+            <button id="menu-toggle" class="lg:hidden p-2 -mr-2 text-light-text hover:text-custom-accent transition" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+            </button>
         </div>
+        <nav id="mobile-menu" class="lg:hidden hidden max-w-7xl mx-auto pt-4" aria-label="Mobile">
+            <ul class="flex flex-col border-t border-line pt-2">
+                <li><a href="#skills" class="nav-link block py-3">SKILLS</a></li>
+                <li><a href="#experience" class="nav-link block py-3">EXPERIENCE</a></li>
+                <li><a href="#education" class="nav-link block py-3">EDUCATION</a></li>
+                <li><a href="#resume" class="nav-link block py-3">RESUME</a></li>
+                <li><a href="#projects" class="nav-link block py-3">PROJECTS</a></li>
+                <li><a href="#about" class="nav-link block py-3">ABOUT</a></li>
+                <li><a href="#contact" class="nav-link block py-3">CONTACT</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <!-- Hero Section -->
-    <section id="hero" class="min-h-screen flex items-center justify-center px-6 py-20">
-        <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center text-center lg:text-left">
-            
-            <!-- Profile Picture -->
-            <div class="flex justify-center lg:justify-end lg:order-2">
-                <img src="https://static.wixstatic.com/media/347014_d464fb31eed149e583f53e84d30edc14~mv2.jpg/v1/fill/w_960,h_695,al_c,q_85,enc_avif,quality_auto/347014_d464fb31eed149e583f53e84d30edc14~mv2.jpg"
-                     onerror="this.onerror=null; this.src='https://placehold.co/400x400/121212/00ADB5?text=Fahad+Sencer'; console.error('Image failed to load, using placeholder.');"
-                     alt="Fahad Sencer Profile Picture"
-                     class="w-64 h-64 md:w-80 md:h-80 object-cover rounded-full border-4 border-custom-accent shadow-2xl shadow-custom-accent/50 mb-8 lg:mb-0"
-                >
+    <section id="hero" class="hero-bg relative min-h-[calc(100vh-72px)] flex items-center justify-center px-6 py-20 overflow-hidden">
+        <div class="max-w-6xl w-full mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center text-center lg:text-left">
+
+            <div class="flex justify-center lg:justify-end lg:order-2 reveal">
+                <div class="relative">
+                    <div class="absolute -inset-3 rounded-full bg-custom-accent/20 blur-2xl" aria-hidden="true"></div>
+                    <img src="https://static.wixstatic.com/media/347014_d464fb31eed149e583f53e84d30edc14~mv2.jpg/v1/fill/w_960,h_695,al_c,q_85,enc_avif,quality_auto/347014_d464fb31eed149e583f53e84d30edc14~mv2.jpg"
+                         onerror="this.onerror=null; this.src='https://placehold.co/400x400/121212/00ADB5?text=Fahad+Sencer';"
+                         alt="Fahad Sencer"
+                         class="relative w-60 h-60 md:w-80 md:h-80 object-cover rounded-full border-4 border-custom-accent shadow-2xl"
+                    >
+                </div>
             </div>
-            
-            <!-- Text Content -->
-            <div class="lg:order-1">
-                <p class="text-base md:text-xl font-medium mb-4 text-custom-accent tracking-wider uppercase">HI THERE, I'M FAHAD SENCER.</p>
-                <h1 class="text-4xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight">
-                    I am a <span class="text-custom-accent" id="typewriter-target">Web Developer</span>.
+
+            <div class="lg:order-1 reveal">
+                <p class="font-mono text-sm md:text-base mb-5 text-custom-accent tracking-wider">&gt; hi there, i'm fahad sencer_</p>
+                <h1 class="font-display text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-[1.05] tracking-tight">
+                    I am a <br class="hidden md:block"><span class="text-custom-accent" id="typewriter-target">Web Developer</span>
                 </h1>
-                <p class="text-lg md:text-xl mb-8 text-gray-400">
-                    UNIVERSITY STUDENT | WEB DEVELOPER | DESIGN ENTHUSIAST
+                <p class="text-base md:text-lg mb-10 text-gray-400 max-w-xl mx-auto lg:mx-0">
+                    Computer Science student at Teesside University London, building web apps, system integrations and automation workflows.
                 </p>
-                <a href="#experience" class="inline-flex items-center justify-center px-8 py-3 border border-custom-accent text-sm font-semibold rounded-full text-custom-accent hover:bg-custom-accent hover:text-dark-bg transition duration-300 shadow-lg hover:shadow-custom-accent/50">
-                    VIEW MY EXPERIENCE
-                </a>
+                <div class="flex flex-wrap gap-4 justify-center lg:justify-start">
+                    <a href="#projects" class="btn-primary">VIEW MY PROJECTS</a>
+                    <a href="#resume" class="btn-outline">MY RESUME</a>
+                </div>
+                <div class="mt-10 flex gap-5 justify-center lg:justify-start">
+                    <a href="https://github.com/fahad16jpeg" target="_blank" rel="noopener" class="social-link" aria-label="GitHub">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.37-3.87-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.76 2.69 1.25 3.35.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.18-3.09-.12-.29-.51-1.46.11-3.04 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.58.23 2.75.11 3.04.74.81 1.18 1.83 1.18 3.09 0 4.41-2.69 5.38-5.25 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg>
+                    </a>
+                    <a href="https://www.linkedin.com/in/muhammad-fahad16/" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.75s.784-1.75 1.75-1.75 1.75.79 1.75 1.75-.783 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.13-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    </a>
+                    <a href="mailto:mfahaddd753@gmail.com" class="social-link" aria-label="Email">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+                    </a>
+                </div>
             </div>
         </div>
     </section>
-    
-    <!-- Skillset Section -->
-    <section id="skills" class="py-20 px-6 md:px-12 bg-medium-dark">
+
+    <section id="skills" class="py-24 px-6 md:px-12 bg-medium-dark">
         <div class="max-w-6xl mx-auto">
-            <h2 class="text-4xl md:text-5xl font-bold mb-12 text-center border-b-2 border-custom-accent/30 inline-block pb-1">Skillset.</h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="section-heading reveal">
+                <p class="section-eyebrow">01 / skills</p>
+                <h2 class="section-title">Skillset<span class="text-custom-accent">.</span></h2>
+            </div>
 
-                <!-- Skill Block 1 -->
-                <div class="space-y-4">
-                    <!-- WEB DEVELOPMENT -->
-                    <div class="mb-4">
-                        <p class="text-base font-semibold text-light-text flex justify-between">
-                            <span>WEB DEVELOPMENT</span>
-                            <span class="text-custom-accent">85%</span>
-                        </p>
-                        <div class="w-full bg-gray-700 rounded-full h-2.5">
-                            <div class="bg-custom-accent h-2.5 rounded-full progress-bar" data-width="85" style="width: 0%"></div>
-                        </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-6 reveal">
+
+                <div class="space-y-6">
+                    <div>
+                        <p class="skill-label"><span>WEB DEVELOPMENT</span><span class="text-custom-accent">85%</span></p>
+                        <div class="skill-track"><div class="skill-fill progress-bar" data-width="85"></div></div>
                     </div>
-                    <!-- JAVASCRIPT -->
-                    <div class="mb-4">
-                        <p class="text-base font-semibold text-light-text flex justify-between">
-                            <span>JAVASCRIPT</span>
-                            <span class="text-custom-accent">75%</span>
-                        </p>
-                        <div class="w-full bg-gray-700 rounded-full h-2.5">
-                            <div class="bg-custom-accent h-2.5 rounded-full progress-bar" data-width="75" style="width: 0%"></div>
-                        </div>
+                    <div>
+                        <p class="skill-label"><span>JAVASCRIPT</span><span class="text-custom-accent">75%</span></p>
+                        <div class="skill-track"><div class="skill-fill progress-bar" data-width="75"></div></div>
                     </div>
-                    <!-- PYTHON -->
-                    <div class="mb-4">
-                        <p class="text-base font-semibold text-light-text flex justify-between">
-                            <span>PYTHON</span>
-                            <span class="text-custom-accent">60%</span>
-                        </p>
-                        <div class="w-full bg-gray-700 rounded-full h-2.5">
-                            <div class="bg-custom-accent h-2.5 rounded-full progress-bar" data-width="60" style="width: 0%"></div>
-                            </div>
+                    <div>
+                        <p class="skill-label"><span>PYTHON</span><span class="text-custom-accent">60%</span></p>
+                        <div class="skill-track"><div class="skill-fill progress-bar" data-width="60"></div></div>
                     </div>
-                    <!-- HTML & CSS -->
-                    <div class="mb-4">
-                        <p class="text-base font-semibold text-light-text flex justify-between">
-                            <span>HTML & CSS</span>
-                            <span class="text-custom-accent">50%</span>
-                        </p>
-                        <div class="w-full bg-gray-700 rounded-full h-2.5">
-                            <div class="bg-custom-accent h-2.5 rounded-full progress-bar" data-width="50" style="width: 0%"></div>
-                        </div>
+                    <div>
+                        <p class="skill-label"><span>HTML &amp; CSS</span><span class="text-custom-accent">50%</span></p>
+                        <div class="skill-track"><div class="skill-fill progress-bar" data-width="50"></div></div>
                     </div>
                 </div>
 
-                <!-- Skill Block 2 -->
-                <div class="space-y-4">
-                    <!-- PROJECT MANAGEMENT -->
-                    <div class="mb-4">
-                        <p class="text-base font-semibold text-light-text flex justify-between">
-                            <span>PROJECT MANAGEMENT</span>
-                            <span class="text-custom-accent">85%</span>
-                        </p>
-                        <div class="w-full bg-gray-700 rounded-full h-2.5">
-                            <div class="bg-custom-accent h-2.5 rounded-full progress-bar" data-width="85" style="width: 0%"></div>
-                        </div>
+                <div class="space-y-6">
+                    <div>
+                        <p class="skill-label"><span>PROJECT MANAGEMENT</span><span class="text-custom-accent">85%</span></p>
+                        <div class="skill-track"><div class="skill-fill progress-bar" data-width="85"></div></div>
                     </div>
-                    <!-- GRAPHIC DESIGN -->
-                    <div class="mb-4">
-                        <p class="text-base font-semibold text-light-text flex justify-between">
-                            <span>GRAPHIC DESIGN</span>
-                            <span class="text-custom-accent">80%</span>
-                        </p>
-                        <div class="w-full bg-gray-700 rounded-full h-2.5">
-                            <div class="bg-custom-accent h-2.5 rounded-full progress-bar" data-width="80" style="width: 0%"></div>
-                        </div>
+                    <div>
+                        <p class="skill-label"><span>GRAPHIC DESIGN</span><span class="text-custom-accent">80%</span></p>
+                        <div class="skill-track"><div class="skill-fill progress-bar" data-width="80"></div></div>
                     </div>
-                    <!-- 3D ENVIRONMENT -->
-                    <div class="mb-4">
-                        <p class="text-base font-semibold text-light-text flex justify-between">
-                            <span>3D ENVIRONMENT</span>
-                            <span class="text-custom-accent">35%</span>
-                        </p>
-                        <div class="w-full bg-gray-700 rounded-full h-2.5">
-                            <div class="bg-custom-accent h-2.5 rounded-full progress-bar" data-width="35" style="width: 0%"></div>
-                        </div>
+                    <div>
+                        <p class="skill-label"><span>3D ENVIRONMENT</span><span class="text-custom-accent">35%</span></p>
+                        <div class="skill-track"><div class="skill-fill progress-bar" data-width="35"></div></div>
                     </div>
-                    <!-- PROFESSIONAL -->
-                    <div class="mb-4">
-                        <p class="text-base font-semibold text-light-text flex justify-between">
-                            <span>PROFESSIONAL</span>
-                            <span class="text-custom-accent">75%</span>
-                        </p>
-                        <div class="w-full bg-gray-700 rounded-full h-2.5">
-                            <div class="bg-custom-accent h-2.5 rounded-full progress-bar" data-width="75" style="width: 0%"></div>
-                        </div>
+                    <div>
+                        <p class="skill-label"><span>PROFESSIONAL</span><span class="text-custom-accent">75%</span></p>
+                        <div class="skill-track"><div class="skill-fill progress-bar" data-width="75"></div></div>
                     </div>
                 </div>
 
+            </div>
+
+            <div class="mt-14 reveal">
+                <p class="font-mono text-xs text-gray-500 mb-4 tracking-wider">// tech i work with</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="tag">C#</span>
+                    <span class="tag">.NET / ASP.NET Core</span>
+                    <span class="tag">Entity Framework</span>
+                    <span class="tag">Python</span>
+                    <span class="tag">Flask</span>
+                    <span class="tag">JavaScript</span>
+                    <span class="tag">HTML &amp; CSS</span>
+                    <span class="tag">Tailwind CSS</span>
+                    <span class="tag">SQL / SQLite</span>
+                    <span class="tag">GoHighLevel</span>
+                    <span class="tag">Blender</span>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Experience Section -->
-    <section id="experience" class="py-20 px-6 md:px-12">
-        <div class="max-w-7xl mx-auto">
-            <h2 class="text-4xl md:text-5xl font-bold mb-12 text-center border-b-2 border-custom-accent/30 inline-block pb-1">Experience.</h2>
-
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
-
-                <!-- Experience Entry 1: Security Officer -->
-                <div class="group bg-medium-dark p-6 md:p-8 rounded-xl shadow-2xl hover:shadow-custom-accent/40 transition duration-500 ease-in-out transform hover:-translate-y-1">
-                    <div class="flex justify-between items-start mb-2">
-                        <h3 class="text-2xl font-bold text-light-text group-hover:text-custom-accent transition duration-300">Security Officer</h3>
-                        <p class="text-sm font-semibold text-custom-accent bg-custom-accent/20 px-3 py-1 rounded-full whitespace-nowrap">2025 - Present</p>
-                    </div>
-                    <p class="text-lg font-medium text-gray-400 mb-4">Royal Lancaster Hotel, London</p>
-                    <p class="text-gray-300 mb-4 text-base">
-                        Ensuring the safety and security of guests, staff, and property. Duties include maintaining surveillance, controlling access points, and responding promptly to security incidents and emergencies.
-                    </p>
-                </div>
-
-                <!-- Experience Entry 2: Automation Specialist GHL -->
-                <div class="group bg-medium-dark p-6 md:p-8 rounded-xl shadow-2xl hover:shadow-custom-accent/40 transition duration-500 ease-in-out transform hover:-translate-y-1">
-                    <div class="flex justify-between items-start mb-2">
-                        <h3 class="text-2xl font-bold text-light-text group-hover:text-custom-accent transition duration-300">Automation Specialist GHL</h3>
-                        <p class="text-sm font-semibold text-custom-accent bg-custom-accent/20 px-3 py-1 rounded-full whitespace-nowrap">2023 - 2024</p>
-                    </div>
-                    <p class="text-lg font-medium text-gray-400 mb-4">Vanray Systems, NYC (Remote)</p>
-                    <p class="text-gray-300 mb-4 text-base">
-                        Developed and implemented system integrations and automation workflows using the GoHighLevel (GHL) platform to streamline client operations and improve efficiency in marketing and sales processes.
-                    </p>
-                </div>
-
-                <!-- Experience Entry 3: Retail Associate -->
-                <div class="group bg-medium-dark p-6 md:p-8 rounded-xl shadow-2xl hover:shadow-custom-accent/40 transition duration-500 ease-in-out transform hover:-translate-y-1">
-                    <div class="flex justify-between items-start mb-2">
-                        <h3 class="text-2xl font-bold text-light-text group-hover:text-custom-accent transition duration-300">Retail Associate</h3>
-                        <p class="text-sm font-semibold text-custom-accent bg-custom-accent/20 px-3 py-1 rounded-full whitespace-nowrap">2023 - 2024 (Seasonal)</p>
-                    </div>
-                    <p class="text-lg font-medium text-gray-400 mb-4">R & B Fashion, Izmir, Turkiye</p>
-                    <p class="text-gray-300 mb-4 text-base">
-                        Provided excellent customer service and maintained inventory and visual merchandising standards during peak seasons. Developed strong communication and team collaboration skills in a fast-paced environment.
-                    </p>
-                </div>
-                
-                <!-- Experience Entry 4: Freelancer -->
-                <div class="group bg-medium-dark p-6 md:p-8 rounded-xl shadow-2xl hover:shadow-custom-accent/40 transition duration-500 ease-in-out transform hover:-translate-y-1">
-                    <div class="flex justify-between items-start mb-2">
-                        <h3 class="text-2xl font-bold text-light-text group-hover:text-custom-accent transition duration-300">Freelancer</h3>
-                        <p class="text-sm font-semibold text-custom-accent bg-custom-accent/20 px-3 py-1 rounded-full whitespace-nowrap">2022 - 2023</p>
-                    </div>
-                    <p class="text-lg font-medium text-gray-400 mb-4">Website Design / Automations GHL</p>
-                    <p class="text-gray-300 mb-4 text-base">
-                        Provided freelance services focusing on custom website design, development, and building automated marketing and CRM workflows for small businesses, utilizing platforms like GHL.
-                    </p>
-                </div>
-
-            </div>
-            <!-- Call to action at the bottom of the section -->
-            <div class="text-center mt-16">
-                <a href="#projects" class="inline-flex items-center justify-center px-10 py-4 border-2 border-custom-accent text-base font-semibold rounded-full text-custom-accent hover:bg-custom-accent hover:text-dark-bg transition duration-300 shadow-xl hover:shadow-custom-accent/50">
-                    VIEW MY PROJECTS
-                </a>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Projects Section -->
-    <section id="projects" class="py-20 px-6 md:px-12 bg-dark-bg">
-        <div class="max-w-7xl mx-auto">
-            <h2 class="text-4xl md:text-5xl font-bold mb-12 text-center border-b-2 border-custom-accent/30 inline-block pb-1">Projects.</h2>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-
-                <!-- Project Card 1: Green Vegetables Snack & Recipie Website -->
-                <div class="group bg-medium-dark p-6 md:p-8 rounded-xl shadow-2xl hover:shadow-custom-accent/40 transition duration-500 ease-in-out transform hover:-translate-y-1">
-                    <div class="mb-4">
-                        <!-- Project Image -->
-                        <img src="https://static.wixstatic.com/media/347014_ff2fff7d7aef4e24b91c33bb5cabde12~mv2.png/v1/fill/w_327,h_326,q_90,enc_avif,quality_auto/347014_ff2fff7d7aef4e24b91c33bb5cabde12~mv2.png"
-                             onerror="this.onerror=null; this.src='https://placehold.co/327x326/1a1a1a/00ADB5?text=Website+Project';"
-                             alt="Green Vegetables Snack & Recipie Website Mockup"
-                             class="w-full h-48 object-cover rounded-lg mb-6 border border-gray-700"
-                        />
-                    </div>
-                    <h3 class="text-2xl font-bold mb-2 text-custom-accent group-hover:text-light-text transition duration-300">Green Vegetables Snack & Recipie Website</h3>
-                    
-                    <p class="text-gray-400 mb-4 text-base">
-                        This project involved designing and developing a clean, user-friendly website dedicated to healthy eating. It features various snack recipes, nutritional breakdowns, and a modern, responsive interface.
-                    </p>
-                    
-                    <div class="flex flex-wrap gap-2 mt-4">
-                        <span class="inline-block text-xs font-semibold py-1 px-3 rounded-full bg-custom-accent/20 text-custom-accent">Web Design</span>
-                        <span class="inline-block text-xs font-semibold py-1 px-3 rounded-full bg-custom-accent/20 text-custom-accent">HTML & CSS</span>
-                    </div>
-                </div>
-
-                <!-- Project Card 2: Dark Money -->
-                <div class="group bg-medium-dark p-6 md:p-8 rounded-xl shadow-2xl hover:shadow-custom-accent/40 transition duration-500 ease-in-out transform hover:-translate-y-1">
-                    <div class="mb-4">
-                        <!-- Project Image -->
-                        <img src="https://static.wixstatic.com/media/347014_93920c5a7c0a45dbb21549b4a79db60c~mv2.png/v1/fill/w_327,h_326,q_90,enc_avif,quality_auto/347014_93920c5a7c0a45dbb21549b4a79db60c~mv2.png"
-                             onerror="this.onerror=null; this.src='https://placehold.co/327x326/1a1a1a/00ADB5?text=Dark+Money+Concept';"
-                             alt="Dark Money Concept Art"
-                             class="w-full h-48 object-cover rounded-lg mb-6 border border-gray-700"
-                        />
-                    </div>
-                    <h3 class="text-2xl font-bold mb-2 text-custom-accent group-hover:text-light-text transition duration-300">Dark Money</h3>
-                    
-                    <p class="text-gray-400 mb-4 text-base">
-                        "Dark Money" is a conceptual graphic design project focused on creating a brand identity with a mysterious, high-contrast theme. It involved advanced digital illustration techniques.
-                    </p>
-
-                    <div class="flex flex-wrap gap-2 mt-4">
-                        <span class="inline-block text-xs font-semibold py-1 px-3 rounded-full bg-custom-accent/20 text-custom-accent">Graphic Design</span>
-                        <span class="inline-block text-xs font-semibold py-1 px-3 rounded-full bg-custom-accent/20 text-custom-accent">Branding</span>
-                    </div>
-                </div>
-
-                <!-- Project Card 3: Eerie Forest Mansion -->
-                <div class="group bg-medium-dark p-6 md:p-8 rounded-xl shadow-2xl hover:shadow-custom-accent/40 transition duration-500 ease-in-out transform hover:-translate-y-1">
-                    <div class="mb-4">
-                        <!-- Project Image -->
-                        <img src="https://static.wixstatic.com/media/347014_bf17a302502c4c398c284ab3274b9d04~mv2.png/v1/fill/w_326,h_326,q_90,enc_avif,quality_auto/347014_bf17a302502c4c398c284ab3274b9d04~mv2.png"
-                             onerror="this.onerror=null; this.src='https://placehold.co/327x326/1a1a1a/00ADB5?text=3D+Mansion+Render';"
-                             alt="Eerie Forest Mansion 3D Render"
-                             class="w-full h-48 object-cover rounded-lg mb-6 border border-gray-700"
-                        />
-                    </div>
-                    <h3 class="text-2xl font-bold mb-2 text-custom-accent group-hover:text-light-text transition duration-300">Eerie Forest Mansion</h3>
-                    
-                    <p class="text-gray-400 mb-4 text-base">
-                        This is a personal 3D modeling and environment creation project. It showcases skills in asset creation, complex scene composition, and advanced rendering techniques using tools like Blender.
-                    </p>
-
-                    <div class="flex flex-wrap gap-2 mt-4">
-                        <span class="inline-block text-xs font-semibold py-1 px-3 rounded-full bg-custom-accent/20 text-custom-accent">3D Environment</span>
-                        <span class="inline-block text-xs font-semibold py-1 px-3 rounded-full bg-custom-accent/20 text-custom-accent">Blender/Unity</span>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="py-20 px-6 md:px-12 bg-medium-dark">
+    <section id="experience" class="py-24 px-6 md:px-12">
         <div class="max-w-4xl mx-auto">
-            <h2 class="text-4xl md:text-5xl font-bold mb-12 text-center border-b-2 border-custom-accent/30 inline-block pb-1">About.</h2>
+            <div class="section-heading reveal">
+                <p class="section-eyebrow">02 / experience</p>
+                <h2 class="section-title">Experience<span class="text-custom-accent">.</span></h2>
+            </div>
 
-            <div class="space-y-6 text-lg text-gray-300 leading-relaxed">
+            <ol class="relative border-l border-line ml-2 space-y-10">
+
+                <li class="relative pl-8 md:pl-10 reveal">
+                    <span class="timeline-dot" aria-hidden="true"></span>
+                    <div class="card group">
+                        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2 mb-2">
+                            <h3 class="font-display text-xl md:text-2xl font-semibold group-hover:text-custom-accent transition duration-300">Retail Sales Associate</h3>
+                            <p class="date-pill">Nov 2025 – Present</p>
+                        </div>
+                        <p class="font-medium text-gray-400 mb-4">Timberland (part-time), Greater London</p>
+                        <ul class="card-list text-gray-300">
+                            <li>Deliver customer service and product support, contributing to team targets and generating <span class="text-light-text font-semibold">£119,000 in sales</span> since November 2025.</li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li class="relative pl-8 md:pl-10 reveal">
+                    <span class="timeline-dot" aria-hidden="true"></span>
+                    <div class="card group">
+                        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2 mb-2">
+                            <h3 class="font-display text-xl md:text-2xl font-semibold group-hover:text-custom-accent transition duration-300">Virtual Assistant (Freelance)</h3>
+                            <p class="date-pill">Mar 2025 – Aug 2025</p>
+                        </div>
+                        <p class="font-medium text-gray-400 mb-4">Vanray Systems, United States</p>
+                        <ul class="card-list text-gray-300">
+                            <li>Built and maintained GoHighLevel workflows, dashboards and CRM pipelines that automated lead capture and follow-up for client sales teams, saving substantial manual time.</li>
+                            <li>Built an n8n chatbot integrating the OpenAI API.</li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li class="relative pl-8 md:pl-10 reveal">
+                    <span class="timeline-dot" aria-hidden="true"></span>
+                    <div class="card group">
+                        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2 mb-2">
+                            <h3 class="font-display text-xl md:text-2xl font-semibold group-hover:text-custom-accent transition duration-300">Web Developer (Freelance)</h3>
+                            <p class="date-pill">May 2024 – Jan 2025</p>
+                        </div>
+                        <p class="font-medium text-gray-400 mb-4">SoftSphere.Co, Ontario, Canada</p>
+                        <ul class="card-list text-gray-300">
+                            <li>Automated lead pipelines by linking Facebook and Google lead sources into the CRM, reaching <span class="text-light-text font-semibold">20–25 clients per 100 leads</span> each week.</li>
+                            <li>Worked with team members to turn design and functional requirements into front-end components, troubleshooting UI issues and improving usability.</li>
+                            <li>Built responsive interfaces and client dashboards using HTML, CSS, Tailwind, JavaScript and React/TypeScript.</li>
+                        </ul>
+                    </div>
+                </li>
+
+            </ol>
+        </div>
+    </section>
+
+    <section id="education" class="py-24 px-6 md:px-12 bg-medium-dark">
+        <div class="max-w-4xl mx-auto">
+            <div class="section-heading reveal">
+                <p class="section-eyebrow">03 / education</p>
+                <h2 class="section-title">Education<span class="text-custom-accent">.</span></h2>
+            </div>
+
+            <div>
+
+                <div class="card card-inset group reveal">
+                    <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2 mb-2">
+                        <h3 class="font-display text-xl md:text-2xl font-semibold group-hover:text-custom-accent transition duration-300">BSc (Hons) Computer Science</h3>
+                        <p class="date-pill">Aug 2024 – Jun 2027</p>
+                    </div>
+                    <p class="font-medium text-gray-400 mb-4">Teesside University London · expected June 2027</p>
+                    <ul class="card-list text-gray-300">
+                        <li>First-class results in both completed years; <span class="text-light-text font-semibold">predicted First-Class Honours</span>.</li>
+                        <li>Focus on AI automations, system integrations and web development.</li>
+                        <li>Member of the TU London football team.</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="resume" class="py-24 px-6 md:px-12">
+        <div class="max-w-4xl mx-auto">
+            <div class="section-heading reveal">
+                <p class="section-eyebrow">04 / resume</p>
+                <h2 class="section-title">My Resume<span class="text-custom-accent">.</span></h2>
+            </div>
+
+            <div class="card resume-card flex flex-col md:flex-row items-center gap-8 md:gap-10 reveal">
+                <div class="shrink-0 w-24 h-28 rounded-xl border border-custom-accent/40 bg-custom-accent/10 flex items-center justify-center text-custom-accent">
+                    <svg class="w-12 h-12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
+                </div>
+                <div class="text-center md:text-left">
+                    <h3 class="font-display text-2xl font-semibold mb-2">Fahad Sencer: Curriculum Vitae</h3>
+                    <p class="text-gray-400 mb-6">
+                        The full picture of my experience, education, skills and projects in one document. View it in your browser or download a PDF copy.
+                    </p>
+                    <div class="flex flex-wrap gap-4 justify-center md:justify-start">
+                        <a href="assets/Fahad_Sencer_CV.pdf" target="_blank" rel="noopener" class="btn-outline">
+                            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>
+                            VIEW CV
+                        </a>
+                        <a href="assets/Fahad_Sencer_CV.pdf" download class="btn-primary">
+                            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+                            DOWNLOAD CV
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="py-24 px-6 md:px-12 bg-medium-dark">
+        <div class="max-w-7xl mx-auto">
+            <div class="section-heading reveal">
+                <p class="section-eyebrow">05 / projects</p>
+                <h2 class="section-title">Projects<span class="text-custom-accent">.</span></h2>
+                <p class="text-gray-400 mt-4 max-w-2xl">Pinned work from my GitHub, from secure Flask apps to ASP.NET Core systems.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+
+                <article class="card card-inset project-card group reveal relative">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="project-icon">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 10 5-10 5L2 7z"/><path d="m2 17 10 5 10-5M2 12l10 5 10-5"/></svg>
+                        </div>
+                        <span class="project-link" aria-hidden="true">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .5C5.65.5.5 5.65.5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.37-3.87-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.76 2.69 1.25 3.35.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.18-3.09-.12-.29-.51-1.46.11-3.04 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.58.23 2.75.11 3.04.74.81 1.18 1.83 1.18 3.09 0 4.41-2.69 5.38-5.25 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg>
+                        </span>
+                    </div>
+                    <h3 class="project-title">
+                        <a href="https://github.com/fahad16jpeg/idp-platform" target="_blank" rel="noopener" class="stretched-link">Internal Developer Platform</a>
+                    </h3>
+                    <p class="font-mono text-xs text-gray-500 mb-3">idp-platform · in progress</p>
+                    <p class="text-gray-400 mb-6 flex-grow">
+                        A Python CLI that scaffolds a production-ready FastAPI service in one command, complete with Docker, Terraform for Azure Container Apps, a GitHub Actions pipeline, tests and monitoring.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">Docker</span><span class="tag">Terraform</span><span class="tag">GitHub Actions</span>
+                    </div>
+                </article>
+
+                <article class="card card-inset project-card group reveal">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="project-icon">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><rect x="9" y="11" width="6" height="5" rx="1"/><path d="M10 11V9a2 2 0 0 1 4 0v2"/></svg>
+                        </div>
+                        <div class="flex gap-3">
+                            <a href="https://github.com/IIRyzII/Enterprise-Challenge" target="_blank" rel="noopener" class="project-link" aria-label="Enterprise Challenge on GitHub">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.37-3.87-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.76 2.69 1.25 3.35.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.18-3.09-.12-.29-.51-1.46.11-3.04 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.58.23 2.75.11 3.04.74.81 1.18 1.83 1.18 3.09 0 4.41-2.69 5.38-5.25 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg>
+                            </a>
+                            <a href="https://enterprise-challenge-secure-future-ltd.onrender.com" target="_blank" rel="noopener" class="project-link" aria-label="Enterprise Challenge live demo">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 3h6v6M10 14 21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                    <h3 class="project-title">Enterprise Challenge</h3>
+                    <p class="font-mono text-xs text-gray-500 mb-3">Secure Future Ltd · team project</p>
+                    <p class="text-gray-400 mb-6 flex-grow">
+                        A secure Flask web application with role-based admin, manager and employee dashboards, TOTP two-factor authentication, invite-only sign-up, rate limiting and activity logs.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tag">Python</span><span class="tag">Flask</span><span class="tag">2FA</span><span class="tag">Security</span>
+                    </div>
+                </article>
+
+                <article class="card card-inset project-card group reveal">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="project-icon">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="3" width="16" height="13" rx="3"/><path d="M4 10h16M12 3v7M8 16l-3 5M16 16l3 5M8 13h.01M16 13h.01"/></svg>
+                        </div>
+                        <div class="flex gap-3">
+                            <a href="https://github.com/fahad16jpeg/railway-e-ticketing-pos" target="_blank" rel="noopener" class="project-link" aria-label="Rail Connect on GitHub">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.37-3.87-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.76 2.69 1.25 3.35.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.18-3.09-.12-.29-.51-1.46.11-3.04 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.58.23 2.75.11 3.04.74.81 1.18 1.83 1.18 3.09 0 4.41-2.69 5.38-5.25 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg>
+                            </a>
+                            <a href="https://railconnect.pythonanywhere.com/" target="_blank" rel="noopener" class="project-link" aria-label="Rail Connect live demo">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 3h6v6M10 14 21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                    <h3 class="project-title">Rail Connect</h3>
+                    <p class="font-mono text-xs text-gray-500 mb-3">railway-e-ticketing-pos</p>
+                    <p class="text-gray-400 mb-6 flex-grow">
+                        A railway point-of-sale and e-ticketing system for managing bookings, customer profiles and payments, with Stripe integration and automated tests.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tag">Python</span><span class="tag">Flask</span><span class="tag">SQLAlchemy</span><span class="tag">Stripe</span>
+                    </div>
+                </article>
+
+                <article class="card card-inset project-card group reveal">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="project-icon">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01"/></svg>
+                        </div>
+                        <div class="flex gap-3">
+                            <a href="https://github.com/fahad16jpeg/Event_Management_WEB" target="_blank" rel="noopener" class="project-link" aria-label="Event Management Web on GitHub">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.37-3.87-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.76 2.69 1.25 3.35.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.18-3.09-.12-.29-.51-1.46.11-3.04 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.58.23 2.75.11 3.04.74.81 1.18 1.83 1.18 3.09 0 4.41-2.69 5.38-5.25 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                    <h3 class="project-title">Event Management Web</h3>
+                    <p class="font-mono text-xs text-gray-500 mb-3">Event_Management_WEB</p>
+                    <p class="text-gray-400 mb-6 flex-grow">
+                        An ASP.NET Core web app for running events end to end: venues, availability, guests, staff and catering bookings, with MVC pages and REST API endpoints.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tag">C#</span><span class="tag">ASP.NET Core</span><span class="tag">EF Core</span><span class="tag">REST API</span>
+                    </div>
+                </article>
+
+                <article class="card card-inset project-card group reveal">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="project-icon">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/><path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3"/></svg>
+                        </div>
+                        <div class="flex gap-3">
+                            <a href="https://github.com/fahad16jpeg/Base.App.NET" target="_blank" rel="noopener" class="project-link" aria-label="Base.App.NET on GitHub">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.37-3.87-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.76 2.69 1.25 3.35.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.18-3.09-.12-.29-.51-1.46.11-3.04 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.58.23 2.75.11 3.04.74.81 1.18 1.83 1.18 3.09 0 4.41-2.69 5.38-5.25 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                    <h3 class="project-title">Base.App.NET</h3>
+                    <p class="font-mono text-xs text-gray-500 mb-3">Base.App.NET</p>
+                    <p class="text-gray-400 mb-6 flex-grow">
+                        A .NET base app that talks to a SQLite database through Entity Framework, modelling trainers, sessions and categories, and handling data access and migrations in C#.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tag">C#</span><span class="tag">.NET</span><span class="tag">EF Core</span><span class="tag">SQLite</span>
+                    </div>
+                </article>
+
+                <article class="card card-inset project-card group reveal">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="project-icon">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4M7 8l-2 2 2 2M17 8l2 2-2 2M13 7l-2 6"/></svg>
+                        </div>
+                        <div class="flex gap-3">
+                            <a href="https://github.com/fahad16jpeg/portfolio_webpage_sencer" target="_blank" rel="noopener" class="project-link" aria-label="Portfolio website on GitHub">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.37-3.87-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.76 2.69 1.25 3.35.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.18-3.09-.12-.29-.51-1.46.11-3.04 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.58.23 2.75.11 3.04.74.81 1.18 1.83 1.18 3.09 0 4.41-2.69 5.38-5.25 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                    <h3 class="project-title">Portfolio Website</h3>
+                    <p class="font-mono text-xs text-gray-500 mb-3">portfolio_webpage_sencer</p>
+                    <p class="text-gray-400 mb-6 flex-grow">
+                        The site you're on right now: a responsive single-page portfolio with a custom cursor, typewriter hero, animated skill bars and scroll-triggered reveals.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="tag">HTML</span><span class="tag">Tailwind CSS</span><span class="tag">JavaScript</span>
+                    </div>
+                </article>
+
+            </div>
+
+            <div class="text-center mt-14 reveal">
+                <a href="https://github.com/fahad16jpeg" target="_blank" rel="noopener" class="btn-outline">SEE MORE ON GITHUB</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-24 px-6 md:px-12">
+        <div class="max-w-4xl mx-auto">
+            <div class="section-heading reveal">
+                <p class="section-eyebrow">06 / about</p>
+                <h2 class="section-title">About<span class="text-custom-accent">.</span></h2>
+            </div>
+
+            <div class="space-y-6 text-lg text-gray-300 leading-relaxed reveal">
                 <p>
-                    I’m an Undergrad Computer Science Student at Teesside University London with a strong interest in AI automations and system integrations. I am passionate about exploring ways to make tasks more efficient through technology and design.
+                    I’m an undergraduate Computer Science student at Teesside University London with a strong interest in AI automations and system integrations. I am passionate about exploring ways to make tasks more efficient through technology and design.
                 </p>
                 <p>
                     My skillsets cover Web Development, Graphic Design, Project Management, and 3D Environment creation. I particularly enjoy the challenge of full-stack development using modern frameworks, ensuring that both the user experience and the underlying code are robust.
                 </p>
                 <p>
-                    Outside of tech, I'm an active member of the TU London football team. I’m currently open to new opportunities in automation or web development—feel free to reach out to connect!
+                    Outside of tech, I'm an active member of the TU London football team. I’m currently open to new opportunities in automation or web development, so feel free to reach out and connect!
                 </p>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-20 px-6 md:px-12 bg-dark-bg">
-        <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-4xl md:text-5xl font-bold mb-8">Let's Connect.</h2>
-            <p class="text-xl md:text-2xl text-gray-300 mb-10">
+    <section id="contact" class="py-24 px-6 md:px-12 bg-medium-dark">
+        <div class="max-w-4xl mx-auto text-center reveal">
+            <p class="section-eyebrow">07 / contact</p>
+            <h2 class="font-display text-4xl md:text-6xl font-bold mb-6 tracking-tight">Let's Connect<span class="text-custom-accent">.</span></h2>
+            <p class="text-lg md:text-xl text-gray-400 mb-10">
                 I'm currently available for freelance opportunities and full-time roles. Drop me a line!
             </p>
 
-            <a href="mailto:contact@mfahaddd753.com" class="inline-flex items-center justify-center px-12 py-5 bg-custom-accent text-dark-bg text-lg font-bold rounded-full shadow-2xl shadow-custom-accent/50 hover:bg-light-text hover:text-custom-accent transition duration-300 transform hover:scale-105">
-                contact@mfahaddd753.com
+            <a href="mailto:mfahaddd753@gmail.com" class="btn-primary text-base md:text-lg px-8 md:px-12 py-4 md:py-5 break-all">
+                mfahaddd753@gmail.com
             </a>
 
-            <!-- Social Links Placeholder (LinkedIn and GitHub SVGs retained) -->
-            <div class="mt-12 flex justify-center space-x-6">
-                <!-- LinkedIn -->
-                <a href="https://www.linkedin.com/in/muhammad-fahad16/" target="_blank" class="text-custom-accent hover:text-light-text transition duration-300">
+            <div class="mt-12 flex justify-center gap-6">
+                <a href="https://www.linkedin.com/in/muhammad-fahad16/" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn">
                     <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.75s.784-1.75 1.75-1.75 1.75.79 1.75 1.75-.783 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.13-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
                 </a>
-                <!-- GitHub -->
-                <a href="https://github.com/fahad16jpeg" target="_blank" class="text-custom-accent hover:text-light-text transition duration-300">
-                    <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.374-12 12s5.374 12 12 12 12-5.374 12-12-5.374-12-12-12zm6.99 6.818l-6.197 10.158-1.503-2.003-3.088-3.992-1.202-1.558 2.003-1.503 1.99 2.585 5.215-8.583 2.684 1.636z"/></svg>
+                <a href="https://github.com/fahad16jpeg" target="_blank" rel="noopener" class="social-link" aria-label="GitHub">
+                    <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.37-3.87-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.76 2.69 1.25 3.35.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.18-3.09-.12-.29-.51-1.46.11-3.04 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.58.23 2.75.11 3.04.74.81 1.18 1.83 1.18 3.09 0 4.41-2.69 5.38-5.25 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/></svg>
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="py-8 text-center border-t border-gray-800 text-gray-500 text-sm">
-        <p>&copy; 2025 Fahad Sencer. Built with <span class="text-red-500">&hearts;</span> and a focus on clean design.</p>
+    <footer class="py-8 px-6 text-center border-t border-line text-gray-500 text-sm">
+        <p>&copy; <span id="year">2026</span> Fahad Sencer. Built with <span class="text-custom-accent">&hearts;</span> and a focus on clean design.</p>
     </footer>
 
-    <!-- 3. Link External JavaScript file -->
+    <a href="#hero" id="back-to-top" class="fixed bottom-6 right-6 z-40 w-11 h-11 rounded-full bg-custom-accent text-dark-bg flex items-center justify-center shadow-lg opacity-0 pointer-events-none transition duration-300" aria-label="Back to top">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><path d="m18 15-6-6-6 6"/></svg>
+    </a>
+
     <script src="script.js"></script>
 
 </body>

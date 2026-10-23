@@ -1,83 +1,360 @@
- @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
-        body {
-            font-family: 'Inter', sans-serif;
-            scroll-behavior: smooth;
-            cursor: none; /* Hide default cursor for custom cursor implementation */
-            background-color: #121212; 
-            color: #EAEAEA; 
-        }
-        
-        /* Custom scrollbar style for dark mode */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #00ADB5; 
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #111827; 
-        }
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px; /* Keep section headings clear of the sticky header */
+}
 
-        /* NEW: Suppress the default pointer cursor on interactive elements */
-        a, button, .cursor-pointer {
-            cursor: none !important;
-        }
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #0f1113;
+    color: #EAEAEA;
+}
 
-        /* --- Custom Cursor Styling --- */
-        .custom-cursor {
-            position: fixed;
-            pointer-events: none; 
-            z-index: 9999;
-            transform: translate(-50%, -50%); 
-            transition: opacity 0.3s ease;
-        }
-        
-        #custom-cursor-outer {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            border: 1px solid #00ADB5; 
-            transition: transform 0.2s linear, border-color 0.2s ease, background-color 0.3s ease-in-out; 
-            will-change: transform, border-color, background-color;
-        }
+/* Custom scrollbar style for dark mode */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-thumb {
+    background: #00ADB5;
+    border-radius: 4px;
+}
+::-webkit-scrollbar-track {
+    background: #0f1113;
+}
 
-        #custom-cursor-inner {
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background-color: #00ADB5;
-            transition: transform 0.1s ease-out, background-color 0.2s ease, opacity 0.2s ease; 
-        }
+/* --- Header --- */
+#site-header.is-scrolled {
+    border-bottom-color: #24292e;
+}
 
-        /* --- HOVER STATE --- */
-        .cursor-hover #custom-cursor-outer {
-            border-color: transparent; 
-            background-color: rgba(255, 255, 255, 0.8); 
-            transform: translate(-50%, -50%) scale(1.8);
-            mix-blend-mode: difference;
-        }
-        .cursor-hover #custom-cursor-inner {
-            background-color: #121212; 
-            transform: translate(-50%, -50%) scale(1.5); 
-            opacity: 0.8;
-        }
+.nav-link {
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    color: #9ca3af;
+    transition: color 0.3s ease;
+    position: relative;
+}
+.nav-link:hover,
+.nav-link.is-active {
+    color: #00ADB5;
+}
+nav[aria-label="Main"] .nav-link.is-active::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -6px;
+    height: 2px;
+    background: #00ADB5;
+    border-radius: 2px;
+}
 
-        /* --- Other Animations --- */
-        .progress-bar {
-            transition: width 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-        
-        .typewriter-cursor {
-            display: inline-block;
-            width: 4px;
-            height: 1.1em;
-            background-color: #00ADB5;
-            margin-left: 2px;
-            animation: blink 0.75s step-end infinite;
-        }
+/* --- Hero background: soft glow + faint grid --- */
+.hero-bg {
+    background:
+        radial-gradient(ellipse 60% 50% at 75% 40%, rgba(0, 173, 181, 0.12), transparent 70%),
+        linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px) 0 0 / 48px 48px,
+        linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px) 0 0 / 48px 48px;
+}
 
-        @keyframes blink {
-            from, to { opacity: 1; }
-            50% { opacity: 0; }
-        }
+/* --- Buttons & links --- */
+.btn-primary,
+.btn-outline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.8rem 1.75rem;
+    border-radius: 9999px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    transition: all 0.3s ease;
+}
+.btn-primary {
+    background: #00ADB5;
+    color: #0f1113;
+    box-shadow: 0 10px 30px -10px rgba(0, 173, 181, 0.6);
+}
+.btn-primary:hover {
+    background: #EAEAEA;
+    transform: translateY(-2px);
+}
+.btn-outline {
+    border: 1px solid #00ADB5;
+    color: #00ADB5;
+}
+.btn-outline:hover {
+    background: #00ADB5;
+    color: #0f1113;
+    transform: translateY(-2px);
+}
+
+.social-link {
+    color: #9ca3af;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+.social-link:hover {
+    color: #00ADB5;
+    transform: translateY(-2px);
+}
+
+/* --- Section headings --- */
+.section-heading {
+    margin-bottom: 3rem;
+}
+.section-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    color: #00ADB5;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5rem;
+}
+.section-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(2.25rem, 5vw, 3.25rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+}
+
+/* --- Cards --- */
+.card {
+    background: #16191c;
+    border: 1px solid #24292e;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+}
+@media (min-width: 768px) {
+    .card { padding: 2rem; }
+}
+.card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(0, 173, 181, 0.5);
+    box-shadow: 0 20px 40px -20px rgba(0, 173, 181, 0.35);
+}
+.card-inset {
+    background: #0f1113;
+}
+.resume-card {
+    background: linear-gradient(135deg, rgba(0, 173, 181, 0.08), #16191c 60%);
+}
+
+.date-pill {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: #00ADB5;
+    background: rgba(0, 173, 181, 0.12);
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    white-space: nowrap;
+    align-self: flex-start;
+}
+
+.card-list {
+    list-style: none;
+    display: grid;
+    gap: 0.6rem;
+}
+.card-list li {
+    position: relative;
+    padding-left: 1.25rem;
+}
+.card-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.65em;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #00ADB5;
+}
+
+.tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 0.3rem 0.75rem;
+    border-radius: 9999px;
+    color: #00ADB5;
+    background: rgba(0, 173, 181, 0.1);
+    border: 1px solid rgba(0, 173, 181, 0.2);
+}
+
+/* --- Experience timeline --- */
+.timeline-dot {
+    position: absolute;
+    left: -7px;
+    top: 2rem;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background: #00ADB5;
+    box-shadow: 0 0 0 4px #0f1113, 0 0 12px rgba(0, 173, 181, 0.7);
+}
+
+/* --- Projects --- */
+.project-card {
+    display: flex;
+    flex-direction: column;
+}
+.project-icon {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #00ADB5;
+    background: rgba(0, 173, 181, 0.1);
+    border: 1px solid rgba(0, 173, 181, 0.25);
+    transition: background 0.3s ease, color 0.3s ease;
+}
+.project-card:hover .project-icon {
+    background: #00ADB5;
+    color: #0f1113;
+}
+.project-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    transition: color 0.3s ease;
+}
+.project-card:hover .project-title {
+    color: #00ADB5;
+}
+/* Makes the whole card clickable through the link in its title */
+.stretched-link::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+}
+.project-link {
+    color: #9ca3af;
+    transition: color 0.3s ease;
+}
+.project-link:hover {
+    color: #00ADB5;
+}
+
+/* --- Skills --- */
+.skill-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.6rem;
+}
+.skill-track {
+    width: 100%;
+    height: 6px;
+    border-radius: 9999px;
+    background: #24292e;
+    overflow: hidden;
+}
+.skill-fill {
+    height: 100%;
+    width: 0;
+    border-radius: 9999px;
+    background: linear-gradient(90deg, #007d83, #00ADB5);
+}
+
+/* --- Back to top --- */
+#back-to-top.is-visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* --- Custom Cursor (only enabled on mouse devices, see script.js) --- */
+.custom-cursor {
+    display: none;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.3s ease;
+}
+.has-custom-cursor .custom-cursor {
+    display: block;
+    opacity: 0; /* Hidden until the first mouse move so it doesn't sit at 0,0 */
+}
+.cursor-visible .custom-cursor {
+    opacity: 1;
+}
+.has-custom-cursor body,
+.has-custom-cursor a,
+.has-custom-cursor button {
+    cursor: none !important;
+}
+
+#custom-cursor-outer {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid #00ADB5;
+    transition: transform 0.2s linear, border-color 0.2s ease, background-color 0.3s ease-in-out;
+    will-change: transform, border-color, background-color;
+}
+
+#custom-cursor-inner {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #00ADB5;
+    transition: transform 0.1s ease-out, background-color 0.2s ease, opacity 0.2s ease;
+}
+
+/* --- HOVER STATE --- */
+#custom-cursor-outer.cursor-hover {
+    border-color: transparent;
+    background-color: rgba(255, 255, 255, 0.8);
+    transform: translate(-50%, -50%) scale(1.8);
+    mix-blend-mode: difference;
+}
+#custom-cursor-inner.cursor-hover {
+    background-color: #121212;
+    transform: translate(-50%, -50%) scale(1.5);
+    opacity: 0.8;
+}
+
+/* --- Other Animations --- */
+.progress-bar {
+    transition: width 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.typewriter-cursor {
+    display: inline-block;
+    width: 4px;
+    height: 0.9em;
+    background-color: #00ADB5;
+    margin-left: 4px;
+    vertical-align: -0.05em;
+    animation: blink 0.75s step-end infinite;
+}
+
+@keyframes blink {
+    from, to { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* Scroll reveal: content is visible by default; script.js opts in to the animation */
+.reveal-ready .reveal {
+    opacity: 0;
+    translate: 0 24px; /* `translate`, not `transform`, so card hover lifts still work */
+    transition: opacity 0.7s ease, translate 0.7s ease, transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+}
+.reveal-ready .reveal.is-visible {
+    opacity: 1;
+    translate: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .reveal-ready .reveal { opacity: 1; translate: none; transition: none; }
+    .progress-bar { transition: none; }
+}
